@@ -1,12 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import { Provider } from 'react-redux';
+import store from './frontend/store';
+import App from './frontend/components/App';
 
-ReactDOM.render(<App />, document.getElementById('root'));
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+import { addUser, deleteUser } from './frontend/actions/user_actions';
+import { addQuestion, deleteQuestion } from './frontend/actions/question_actions';
+
+window.store = store;
+window.addUser = addUser;
+window.deleteUser = deleteUser;
+window.addQuestion = addQuestion;
+window.deleteQuestion = deleteQuestion;
+
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+);
