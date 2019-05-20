@@ -1,12 +1,15 @@
 import React from 'react';
 import '../../App.css';
-import Users from './Users';
+import Login from './login';
+import Home from './home';
+import { Route } from 'react-router-dom';
 
 const App = () => {
+
   return (
     <div className="App">
-      <h1>Would You Rather?</h1>
-      <Users />
+      <Route exact path="/" render={props => <Login {...props} />} />
+      <Route path="/home" component={Home} />
     </div>
   );
 }
