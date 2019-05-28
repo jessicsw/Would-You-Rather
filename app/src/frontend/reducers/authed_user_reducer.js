@@ -1,4 +1,5 @@
-import { RECEIVE_AUTHED_USER } from '../actions/user_actions';
+import { RECEIVE_AUTHED_USER, LOGOUT_USER } from '../actions/user_actions';
+import merge from 'lodash/merge';
 
 let _defaultState = {};
 
@@ -7,7 +8,9 @@ const authedUserReducer = (state = _defaultState, action) => {
 
   switch (action.type) {
     case RECEIVE_AUTHED_USER:
-      return { ...state, [action.user.id]: action.user }
+      return merge({}, action.user, { answers: action.user.answers });
+    case LOGOUT_USER:
+      return _defaultState;
     default:
       return state;
   }

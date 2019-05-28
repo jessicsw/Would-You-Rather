@@ -21,8 +21,8 @@ const usersReducer = (state = _defaultState, action) => {
 
       return nextState;
     case FETCH_USERS:
-      action.users.forEach(user => {
-        nextState[user.id] = user
+      Object.keys(action.users).forEach(id => {
+        nextState[id] = action.users[id]
       });
       return nextState;
     default:

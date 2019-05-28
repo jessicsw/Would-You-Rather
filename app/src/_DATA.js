@@ -1,8 +1,10 @@
+import noImage from './images/noImage.jpeg';
+
 let users = {
   sarahedo: {
     id: 'sarahedo',
     name: 'Sarah Edo',
-    avatarURL: [],
+    avatarURL: noImage,
     answers: {
       "8xf0y6ziyjabvozdd253nd": 'optionOne',
       "6ni6ok3ym7mf1p33lnez": 'optionTwo',
@@ -14,7 +16,7 @@ let users = {
   tylermcginnis: {
     id: 'tylermcginnis',
     name: 'Tyler McGinnis',
-    avatarURL: [],
+    avatarURL: noImage,
     answers: {
       "vthrdm985a262al8qx3do": 'optionOne',
       "xj352vofupe1dqz9emx13r": 'optionTwo',
@@ -24,7 +26,7 @@ let users = {
   johndoe: {
     id: 'johndoe',
     name: 'John Doe',
-    avatarURL: [],
+    avatarURL: noImage,
     answers: {
       "xj352vofupe1dqz9emx13r": 'optionOne',
       "vthrdm985a262al8qx3do": 'optionTwo',
@@ -132,11 +134,7 @@ export function _getQuestions() {
 }
 
 export function _updateAuthedUser(user) {
-  return new Promise((res, rej) => {
-    // debugger;
-    setTimeout(() => res(user)
-      , 1000)
-  })
+  return new Promise((res, rej) => res(user))
 }
 
 function formatQuestion({ optionOneText, optionTwoText, author }) {
@@ -176,6 +174,19 @@ export function _saveQuestion(question) {
 
       res(formattedQuestion)
     }, 1000)
+  })
+}
+
+export function _saveAvatar({ userID, defaultAvatar }) {
+  return new Promise((res, rej) => {
+    users = {
+      ...users,
+      [userID]: {
+        ...users[userID],
+        avatarURL: defaultAvatar
+      }
+    }
+    res()
   })
 }
 
