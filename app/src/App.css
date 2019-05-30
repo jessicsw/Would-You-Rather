@@ -1,82 +1,416 @@
-body {
-  background: #7bc4d3;
+@import-normalize;
+
+html {
+  /* background-image: url('./images/background.png');
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; */
+  background: #ffd248;
+  font-family: 'Heebo', sans-serif;
+}
+
+
+h4 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  letter-spacing: 0.5px;
+}
+
+.login {
+  position: absolute;
+  width: 100%;
+  height: auto;
+}
+
+.login-form {
+  position: relative;
+  width: 20%;
+  margin: 0 auto;
+  cursor: pointer;
+  border-left: 5px solid grey;
+  padding: 0.9%;
+  background: whitesmoke;
+  text-align: left;
+}
+
+.login > h1 {
+  padding-bottom: 2%;
+  letter-spacing: 1.5px;
+}
+
+.login-form span {
+  font-size: 0.8em;
+}
+
+.login-form:after {
+  content: "";
+  width: 0;
+  height: 0;
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  margin-top: -3px;
+  border-width: 6px 6px 0 6px;
+  border-style: solid;
+  border-color: grey transparent;
+}
+
+.login-dropdown {
+  position: absolute;
+  top: 100%;
+  left: -5px;
+  right: 0px;
+  padding: 0px;
+  margin: 0px;
+
+  background: whitesmoke;
+  transition: all 0.3s ease-out;
+  list-style: none;
+
+  opacity: 0;
+  pointer-events: none;
+}
+
+.login-dropdown li {
+  position: relative;
+  z-index: 2;
+  display: block;
+  text-decoration: none;
+  color: black;
+  border-left: 5px solid;
+  padding: 7px;
+  transition: all 0.3s ease-out;
+}
+
+.login-dropdown li:nth-child(1) {
+  border-left-color: #ffd248;
+}
+
+.login-dropdown li:nth-child(2) {
+  border-left-color: #deab11;
+}
+
+.login-dropdown li:nth-child(3) {
+  border-left-color: #9d7600;
+}
+
+.login-dropdown li:hover {
+  color: grey;
+}
+
+.active:after {
+  border-width: 0 6px 6px 6px;
+}
+
+.active > ul {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .App {
+  position: absolute;
+  left: 50%;
+  right: 50%;
+  transform: translate(-50%, 10%);
+  top: 4%;
+  width: 70%;
+  height: 75%;
+  z-index: 1;
+  background: white;
+  border: 1px #000 solid;
   text-align: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 5px;
+  font-family: 'Heebo', sans-serif;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.default-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
 }
 
 .login > img {
-  width: 300px;
-  height: 300px;
+  width: 250px;
+  height: 250px;
 }
 
+/* Navigation Bar */
 .navbar {
   display: flex;
-  position: relative;
-  flex-wrap: nowrap;
+  position: fixed;
   background: #ccc;
-  height: 45px;
-  text-align: center;
-  justify-content: flex-start;
+  width: 100%;
+  height: 40px;
+  padding: 5px 0px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  z-index: 2;
 }
 
 .navbar-links {
+  display: flex;
+  position: fixed;
+  width: 100%;
+  justify-content: flex-end;
+  padding: 4px 0;
+}
+
+.navbar-link {
+  display: flex;
+  justify-content: right;
   text-decoration: none;
   margin-top: auto;
   margin-bottom: auto;
-  padding: 0 20px;
+  padding: 0px 15px;
   font-family: 'Lato', 'Lucida Grande', 'Lucida Sans Unicode', Tahoma, Sans-Serif;
   font-size: 14px;
   color: #000;
   font-weight: 500;
 }
 
-.last {
-  padding-left: 700px;
+.navbar-header {
+  display: flex;
+  justify-content: flex-start;
+  position: fixed;
+  font-family: 'Heebo', sans-serif;
+  text-decoration: none;
+  width: auto;
+  height: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  padding: 11px 20px;
 }
 
-.navbar > h2 {
-  margin: 5px 0 0 0;
-  padding-left: 150px;
-  padding-right: 450px;
-}
-
-.user-profile {
+.navbar-user-profile {
   display: flex;
   margin-top: auto;
   margin-bottom: auto;
+  padding: 0 15px;
 }
 
-.user-name {
+.navbar-user-name {
   padding-left: 10px;
   margin-top: auto;
   margin-bottom: auto;
+  font-family: 'Heebo', sans-serif;
+  font-size: 15px;
 }
 
-.user-avatar {
-  border-radius: 5px;
+.navbar-user-avatar {
+  width: 30px;
+  height: 30px;
+  background-size: 30px;
+  border-radius: 50%;
   border: 1px #767575 solid;
 }
 
+/* Question Nav - (Un/Answered Questions) */
 .question-nav {
-  display: flex;
-  justify-content: center;
+  z-index: 1;
+  margin-top: 60px;
 }
 
-/* not working
-.button:hover {
+.question-nav-buttons {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+.question-nav-buttons > button {
+  padding: 2px 10px;
+  margin: 10px 5px;
+}
+
+.question-list {
+  list-style: none;
+  margin: 0 auto;
+}
+
+.question-item {
+  display: flex;
+  position: relative;
+  right: 20px;
+
+  width: 60%;
+
+  margin: 0 auto;
+
+  overflow: auto;
+  border: 1px solid black;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 1px rgba(0, 0, 0, 0.19);
+}
+
+/* Question Nav - User Display */
+.question-user {
+  float: left;
+  padding: 25px;
+}
+
+.question-user-divide {
+  display: flex;
+  height: 140px;
+  margin: auto 0;
+  border-right: 1px solid #ccc;
+}
+
+.question-user-author {
+  padding-top: 15px;
+}
+
+.question-user-avatar {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  background-repeat: no-repeat;
+  background-size: 100px;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 1px rgba(0, 0, 0, 0.19);
+}
+
+/* Question Nav - Unanswered Question Display */
+.unanswered-question-options {
+  position: relative;
+  display: block;
+  width: auto;
+  height: auto;
+  margin: auto;
+}
+
+.question-option-one {
+  width: auto;
+  height: 30%;
+  border: 1px solid #ccc;
+  padding: 0 40px;
+  padding-bottom: 10px;
+  background: lightblue;
   cursor: pointer;
-} */
+  margin-bottom: 5px;
+}
+
+.question-option-two {
+  width: auto;
+  height: 30%;
+  border: 1px solid #ccc;
+  padding: 0 40px;
+  padding-top: 10px;
+  background: lightpink;
+  cursor: pointer;
+}
+
+.question-options-or {
+  position: absolute;
+  left: 44%;
+  top: 37.5%;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  font-size: 15px;
+  line-height: 2;
+  background: darkgrey;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 1px rgba(0, 0, 0, 0.19);
+  color: white;
+  cursor: default;
+}
+
+
+/* Question Form */
+.question-wrapper > header {
+  font-family: 'Heebo', sans-serif;
+  padding: 15px 0;
+  margin-top: 10%;
+}
+
+.question-form {
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.question-form-input {
+  display: table-row;
+}
+
+.question-form-input > label {
+  display: table-cell;
+  text-align: right;
+  padding-right: 10px;
+}
+
+.question-form-input > input {
+  display: table-cell;
+}
+
+.question-form-button > input {
+  cursor: pointer;
+  margin-top: 20%;
+  margin-left: 100%;
+}
+
+/* Leaderboard */
+.leaderboard-user-avatar {
+  margin: 0 auto;
+  width: 100px;
+  height: 100px;
+  background-repeat: no-repeat;
+  background-size: 100px;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 1px rgba(0, 0, 0, 0.19);
+}
+
+.leaderboard-user-info > p {
+  padding-top: 10px;
+  padding-bottom: 15px;
+}
+
+.leaderboard-list-item {
+  position: relative;
+  width: 40%;
+  height: auto;
+  border: 1px solid black;
+  margin: 15px auto;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 1px rgba(0, 0, 0, 0.19);
+}
+
+.leaderboard-list-item::before {
+  content: "";
+}
+
+.leaderboard-list-item p {
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin: 5px auto;
+}
+
+.leaderboard-list {
+  text-align: center;
+  list-style-position: outside;
+}
+
+.leaderboard > h2 {
+  margin-left: 2%;
+  margin-top: 8%;
+  font-family: 'Heebo', sans-serif;
+  letter-spacing: 1.3px;
+}
+
+/* Unanswered Questions */
+.answered-question-options {
+  position: relative;
+  display: flex;
+  width: 100%;
+}
+
+.question-option {
+  margin: auto;
+  padding: 0 3%;
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 import * as GameAPI from '../../../_DATA';
-import login from '../../../images/login.jpg';
+import login from '../../../images/login.png';
 import LoginUser from './login_dropdown';
 import { connect } from 'react-redux';
 import { authedUser, fetchUsers } from '../../actions/user_actions';
@@ -20,8 +20,12 @@ class Login extends React.Component {
   constructor(props) {
     super(props);
 
-    this.handleOnChange = this.handleOnChange.bind(this);
-    this.handleOnClick = this.handleOnClick.bind(this);
+    this.state = {
+      active: false
+    };
+
+    // this.handleOnChange = this.handleOnChange.bind(this);
+    // this.handleOnClick = this.handleOnClick.bind(this);
   }
 
   componentDidMount() {
@@ -32,42 +36,41 @@ class Login extends React.Component {
       .then(questions => { this.props.fetchQuestions(questions) });
   }
 
-  handleOnChange = event => {
+  handleToggleClass = event => {
     event.preventDefault();
 
-    let userID = event.target.value;
-    let user = this.props.users[userID];
-    this.props.updateAuthedUser(user);
-  }
-
-  //maybe add spinner until authedUser != empty
-  //then can scrap this function
-  handleOnClick = event => {
-    event.preventDefault();
-    this.props.history.push('/');
+    const currentState = this.state.active;
+    this.setState({ active: !currentState });
   }
 
 
   render() {
-    let { users } = this.props;
+    let { users, updateAuthedUser, history } = this.props;
+    let { active } = this.state;
+
     const listUsers = Object.keys(users).map(id =>
       <LoginUser
         key={`login-user-${id}`}
-        user={users[id]} />
-    );
+        history={history}
+        users={users}
+        user={users[id]}
+        updateAuthedUser={updateAuthedUser} />
+    )
 
     return (
       <div className="login">
-        <h1>WOULD YOU RATHER?</h1>
+        <h1>Would You Rather?</h1>
         <img src={login} alt="login" />
         <h4>Please sign in to continue.</h4>
-        <form>
-          <select onChange={this.handleOnChange} defaultValue="select user">
-            <option value="select user" disabled>Select User</option>
+        <div className={active ? "login-form active" : "login-form"} onClick={this.handleToggleClass}>
+          <span>
+            Select User
+          </span>
+          <ul
+            className="login-dropdown">
             {listUsers}
-          </select>
-          <button onClick={this.handleOnClick}>Sign In</button>
-        </form>
+          </ul>
+        </div>
       </div>
     )
   }

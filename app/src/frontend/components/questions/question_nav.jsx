@@ -28,7 +28,7 @@ class QuestionNav extends React.Component {
 
     return (
       <div className="question-nav">
-        <div className="question-buttons">
+        <div className="question-nav-buttons">
           <button value="false" onClick={this.toggle}>Questions to Answer</button>
           <button value="true" onClick={this.toggle}>Answered Questions</button>
         </div>

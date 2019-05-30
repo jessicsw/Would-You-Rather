@@ -1,4 +1,5 @@
 import React from 'react';
+import 'normalize.css';
 import '../../App.css';
 import Login from './login/login';
 import Home from './homepage/home';
@@ -12,14 +13,14 @@ import NoMatch from './no_match';
 const App = () => {
 
   const LoginContainer = () => (
-    <div className="container">
+    <div className="login-container">
       <Route exact path="/" render={() => <Redirect to="/login" />} />
       <Route exact path="/login" render={props => <Login {...props} />} />
     </div>
   );
 
   const DefaultContainer = () => (
-    <div className="container">
+    <div className="default-container">
       <ProtectedRoute component={Navbar} />
       <Switch>
         <ProtectedRoute exact path="/" component={Home} />
@@ -31,12 +32,12 @@ const App = () => {
   );
 
   return (
-    <div className="App">
+    <div className="App" >
       <Switch>
         <Route exact path="/login" component={LoginContainer} />
         <Route component={DefaultContainer} />
       </Switch>
-    </div>
+    </div >
   );
 }
 
