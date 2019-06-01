@@ -1,10 +1,52 @@
-# Would You Rather Project
+# Would You Rather?
 
-This is the starter code for the final assessment project for Udacity's React & Redux course.
+Would You Rather? is game of preference, for all ages. This game was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). 
 
-The `_DATA.js` file represents a fake database and methods that let you access the data. The only thing you need to edit in the ` _DATA.js` file is the value of `avatarURL`. Each user should have an avatar, so you’ll need to add the path to each user’s avatar.
+[gif]
 
-Using the provided starter code, you'll build a React/Redux front end for the application. We recommend using the [Create React App](https://github.com/facebook/create-react-app) to bootstrap the project.
+[live link]
+
+Would You Rather? utilizes the following:
+
+* React
+* Redux
+* HTML
+* CSS
+* NPM
+
+## How It Works
+
+### Login
+
+### Homepage
+
+### Create a New Question
+
+### Leaderboard
+
+## Data
+
+The `_DATA.js` file represents a fake database with API methods to access the data.
+
+The database contains two types of objects and six API methods:
+
+* Objects:
+  * Users
+  * Questions
+
+* API Methods:
+  * `_getUsers()`
+  * `_getQuestions()`
+  * `_saveQuestion(question)`
+  * `_saveQuestionAnswer(object)`
+  * `_updateAuthedUser(user)`
+  * `_saveAvatar(object)`
+
+### Future Releases
+
+- [ ] Timestamp on posted questions
+- [ ] Comment section
+
 
 ## Data
 
