@@ -1,6 +1,6 @@
 # Would You Rather?
 
-Would You Rather? is game of preference, for all ages. This game was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). 
+Would You Rather? is re-make of the classic game of preference.
 
 [gif]
 
@@ -13,16 +13,58 @@ Would You Rather? utilizes the following:
 * HTML
 * CSS
 * NPM
+* create-react-app
+* react-router
 
-## How It Works
+# Features
+
+The application has four primary features:
 
 ### Login
 
+Users must select a user profile from a precomposed list before playing. If the user navigates anywhere by entering a URL in the address bar and is not authenticated, they will be re-directed to the login page and asked to sign in. Once the user is logged in, the homepage is shown.
+
+[login gif]
+[react-router code?]
+
 ### Homepage
+
+Once the user in authenticated, the user is able to toggle between a list of questions they haven't answered and a list of questions they have already answered. The questions in both categories are arranged by most recently created to least recently created. The unanswered questions are displayed by default.
+
+Users are able to navigate to the question submission form, leaderboard, homepage, and back to the login page.
+
+[photo]
+
+#### Unanswered Questions
+
+Users will be able to see:
+  1. Author of question
+  2. Question
+  3. The options to choose from
+
+  [photo]
+
+#### Answered Questions
+
+Users will be able to see:
+  1. Question
+  2. The options to choose from
+  3. The number of people who voted for that option
+  4. The option the authenticated user chose.
+
+  [photo]
 
 ### Create a New Question
 
+To submit a new question, users can click on 'Add New Question' and the application will show a form with inputs for the question, option one, and option two. Once the form has been submitted, the user will be re-directed to the homepage and the new question should appear under 'Questions to Answer.'
+
 ### Leaderboard
+
+For some added fun, the application has a leaderboard that shows each user with the number of questions they've asked and answered shown as a sum score.
+
+Users are listed in descending order based on their score. The more questions the user asks and answers, the higher they move up the leaderboard!
+
+[gif]
 
 ## Data
 
@@ -42,101 +84,29 @@ The database contains two types of objects and six API methods:
   * `_updateAuthedUser(user)`
   * `_saveAvatar(object)`
 
-### Future Releases
+## Installation
+
+### Clone
+
+```shell
+$ git clone https://github.com/jessicsw/Would-You-Rather
+```
+
+### Setup
+
+Install project dependencies:
+
+```shell
+npm install
+```
+
+Start the development server:
+
+```shell
+npm start
+```
+
+# Future Releases
 
 - [ ] Timestamp on posted questions
 - [ ] Comment section
-
-
-## Data
-
-There are two types of objects stored in our database:
-
-* Users
-* Questions
-
-### Users
-
-Users include:
-
-| Attribute    | Type             | Description           |
-|-----------------|------------------|-------------------         |
-| id                 | String           | The user’s unique identifier |
-| name          | String           | The user’s first name  and last name     |
-| avatarURL  | String           | The path to the image file |
-| questions | Array | A list of ids of the polling questions this user created|
-| answers      | Object         |  The object's keys are the ids of each question this user answered. The value of each key is the answer the user selected. It can be either `'optionOne'` or `'optionTwo'` since each question has two options.
-
-### Questions
-
-Questions include:
-
-| Attribute | Type | Description |
-|-----------------|------------------|-------------------|
-| id                  | String | The question’s unique identifier |
-| author        | String | The author’s unique identifier |
-| timestamp | String | The time when the question was created|
-| optionOne | Object | The first voting option|
-| optionTwo | Object | The second voting option|
-
-### Voting Options
-
-Voting options are attached to questions. They include:
-
-| Attribute | Type | Description |
-|-----------------|------------------|-------------------|
-| votes             | Array | A list that contains the id of each user who voted for that option|
-| text                | String | The text of the option |
-
-Your code will talk to the database via 4 methods:
-
-* `_getUsers()`
-* `_getQuestions()`
-* `_saveQuestion(question)`
-* `_saveQuestionAnswer(object)`
-
-1) `_getUsers()` Method
-
-*Description*: Get all of the existing users from the database.  
-*Return Value*: Object where the key is the user’s id and the value is the user object.
-
-2) `_getQuestions()` Method
-
-*Description*: Get all of the existing questions from the database.  
-*Return Value*: Object where the key is the question’s id and the value is the question object.
-
-3) `_saveQuestion(question)` Method
-
-*Description*: Save the polling question in the database.  
-*Parameters*:  Object that includes the following properties: `author`, `optionOneText`, and `optionTwoText`. More details about these properties:
-
-| Attribute | Type | Description |
-|-----------------|------------------|-------------------|
-| author | String | The id of the user who posted the question|
-| optionOneText| String | The text of the first option |
-| optionTwoText | String | The text of the second option |
-
-*Return Value*:  An object that has the following properties: `id`, `author`, `optionOne`, `optionTwo`, `timestamp`. More details about these properties:
-
-| Attribute | Type | Description |
-|-----------------|------------------|-------------------|
-| id | String | The id of the question that was posted|
-| author | String | The id of the user who posted the question|
-| optionOne | Object | The object has a text property and a votes property, which stores an array of the ids of the users who voted for that option|
-| optionTwo | Object | The object has a text property and a votes property, which stores an array of the ids of the users who voted for that option|
-|timestamp|String | The time when the question was created|
-
-4) `_saveQuestionAnswer(object)` Method
-
-*Description*: Save the answer to a particular polling question in the database.
-*Parameters*: Object that contains the following properties: `authedUser`, `qid`, and `answer`. More details about these properties:
-
-| Attribute | Type | Description |
-|-----------------|------------------|-------------------|
-| authedUser | String | The id of the user who answered the question|
-| qid | String | The id of the question that was answered|
-| answer | String | The option the user selected. The value should be either `"optionOne"` or `"optionTwo"`|
-
-## Contributing
-
-This repository is the starter code for *all* Udacity students. Therefore, we most likely will not accept pull requests. For details, check out [CONTRIBUTING.md](https://github.com/udacity/reactnd-project-would-you-rather-starter/blob/master/CONTRIBUTING.md).
