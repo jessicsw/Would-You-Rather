@@ -1,5 +1,5 @@
 import React from 'react';
-import * as GameAPI from '../../../_DATA';
+import * as GameAPI from '../../../_DATA.js';
 import checkbox_unchecked from '../../../images/checkbox_unchecked.png';
 import checkbox_checked from '../../../images/checkbox_checked.png';
 

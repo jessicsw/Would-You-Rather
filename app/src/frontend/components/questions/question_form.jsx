@@ -1,5 +1,5 @@
 import React from 'react';
-import * as GameAPI from '../../../_data';
+import * as GameAPI from '../../../_DATA.js';
 import { connect } from 'react-redux';
 import { fetchUsers, authedUser } from '../../actions/user_actions';
 import { fetchQuestions } from '../../actions/question_actions';
@@ -18,7 +18,7 @@ const mapDispatchToProps = dispatch => ({
 
 
 const QuestionForm = props => {
-  const { authedUser, questions, users, fetchUsers, fetchQuestions, updateAuthedUser } = props;
+  const { authedUser, users, fetchUsers, fetchQuestions, updateAuthedUser } = props;
 
   const handleSubmit = event => {
     event.preventDefault();
