@@ -218,7 +218,7 @@ h4 {
 .question-item {
   display: flex;
   width: 100%;
-  justify-content: start;
+  justify-content: flex-start;
   margin-bottom: 35px;
 }
 
@@ -349,7 +349,7 @@ h4 {
 }
 
 .leaderboard-list {
-  margin: 16px auto 0 auto;
+  margin: 16px auto 30px auto;
   width: 739px;
   text-align: center;
   list-style: none;
@@ -376,7 +376,7 @@ h4 {
 
 .leaderboard-list-item {
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   border-radius: 10px;
   width: 100%;
   margin: 0 auto 35px auto;
