@@ -37,7 +37,7 @@ const QuestionForm = props => {
   }
 
   return (
-    <div className="question-wrapper">
+    <div className="question-form-container">
       <header>Create a New Question</header>
       <form className="question-form" onSubmit={handleSubmit}>
         <div className="question-form-input">

@@ -22,25 +22,31 @@ const Leaderboard = props => {
 
       return (
         <li key={id} className="leaderboard-list-item">
-          <div className="leaderboard-user-info">
+          <div className="leaderboard-score small-container">
+            <p>SCORE:</p>
+            <strong>{askCount + answerCount}</strong>
+          </div>
+          <div className="leaderboard-user-info large-container">
             <div className="leaderboard-user-avatar" style={{
               backgroundImage: `url(${avatar})`,
             }}>
             </div>
             <p>{name}</p>
+            <div className="leaderboard-stats">
+              <p>{`Number of Questions Asked: ${askCount}`}</p>
+              <p>{`Number of Questions Answered: ${answerCount}`}</p>
+            </div>
           </div>
-          <p>{`Number of Questions Asked: ${askCount}`}</p>
-          <p>{`Number of Questions Answered: ${answerCount}`}</p>
         </li>
       )
     });
 
   return (
     <div className="leaderboard">
-      <h2>Leaderboard</h2>
-      <ol className="leaderboard-list">
+      <header>Leaderboard</header>
+      <ul className="leaderboard-list">
         {listUsers}
-      </ol>
+      </ul>
     </div>
   )
 };

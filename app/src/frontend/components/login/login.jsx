@@ -59,7 +59,6 @@ class Login extends React.Component {
 
     return (
       <div className="login">
-        <h1>Would You Rather?</h1>
         <img src={login} alt="login" />
         <h4>Please sign in to continue.</h4>
         <div className={active ? "login-form active" : "login-form"} onClick={this.handleToggleClass}>
@@ -71,7 +70,7 @@ class Login extends React.Component {
             {listUsers}
           </ul>
         </div>
-      </div>
+      </div >
     )
   }
 }

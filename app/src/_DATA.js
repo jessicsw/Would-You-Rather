@@ -45,11 +45,11 @@ let questions = {
     timestamp: 1467166872634,
     optionOne: {
       votes: ['christineshiba'],
-      text: 'have horrible short term memory',
+      text: 'be bouldering',
     },
     optionTwo: {
       votes: [],
-      text: 'have horrible long term memory'
+      text: 'be sports climbing'
     }
   },
   "6ni6ok3ym7mf1p33lnez": {
@@ -58,11 +58,11 @@ let questions = {
     timestamp: 1468479767190,
     optionOne: {
       votes: [],
-      text: 'become a superhero',
+      text: 'lose your keys',
     },
     optionTwo: {
       votes: ['janedoe', 'christineshiba'],
-      text: 'become a supervillain'
+      text: 'lose your phone'
     }
   },
   "am8ehyc8byjqgar0jgpub9": {
@@ -71,11 +71,11 @@ let questions = {
     timestamp: 1488579767190,
     optionOne: {
       votes: [],
-      text: 'be telekinetic',
+      text: 'have free wifi wherever you go',
     },
     optionTwo: {
       votes: ['christineshiba'],
-      text: 'be telepathic'
+      text: 'have free coffee wherever you go'
     }
   },
   "loxhs1bqm25b708cmbf3g": {
@@ -84,11 +84,11 @@ let questions = {
     timestamp: 1482579767190,
     optionOne: {
       votes: [],
-      text: 'be a front-end developer',
+      text: 'have one eyebrow',
     },
     optionTwo: {
       votes: ['christineshiba'],
-      text: 'be a back-end developer'
+      text: 'have no eyebrows'
     }
   },
   "vthrdm985a262al8qx3do": {
@@ -97,11 +97,11 @@ let questions = {
     timestamp: 1489579767190,
     optionOne: {
       votes: ['tanyaseneviratne'],
-      text: 'find $50 yourself',
+      text: 'win the lottery',
     },
     optionTwo: {
       votes: ['janedoe'],
-      text: 'have your best friend find $500'
+      text: 'live twice as long'
     }
   },
   "xj352vofupe1dqz9emx13r": {
@@ -114,7 +114,7 @@ let questions = {
     },
     optionTwo: {
       votes: ['tanyaseneviratne'],
-      text: 'write Swift'
+      text: 'write Ruby'
     }
   },
 }
@@ -125,13 +125,13 @@ function generateUID() {
 
 export function _getUsers() {
   return new Promise((res, rej) => {
-    setTimeout(() => res({ ...users }), 1000)
+    setTimeout(() => res({ ...users }), 500)
   })
 }
 
 export function _getQuestions() {
   return new Promise((res, rej) => {
-    setTimeout(() => res({ ...questions }), 1000)
+    setTimeout(() => res({ ...questions }), 500)
   })
 }
 

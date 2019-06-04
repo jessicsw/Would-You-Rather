@@ -1,27 +1,17 @@
 import React from 'react';
-import * as GameAPI from '../../../_DATA';
+import Checkbox from './question_checkbox';
 
 
 const UnansweredQuestions = props => {
-  const handleOnClick = event => {
-    event.preventDefault();
+  const {
+    user,
+    users,
+    questions,
+    updateAuthedUser,
+    fetchUsers,
+    fetchQuestions
+  } = props;
 
-    let saveAnswer = {
-      authedUser: props.user.id,
-      qid: event.target.dataset.id,
-      answer: event.target.dataset.value
-    };
-
-    GameAPI._saveQuestionAnswer(saveAnswer);
-    GameAPI._getUsers()
-      .then(users => { props.fetchUsers(users) });
-    GameAPI._getQuestions()
-      .then(questions => { props.fetchQuestions(questions) });
-    // setTimeout(() => console.log(props.users[props.user.id]), 1000);
-    setTimeout(() => props.updateAuthedUser(props.users[props.user.id]), 1000);
-  }
-
-  const { user, users, questions } = props;
   const unansweredQuestions = Object.keys(questions)
     .sort((q1, q2) => (q1.timestamp > q2.timestamp) ? 1 : -1)
     .filter(questionID => (
@@ -35,10 +25,11 @@ const UnansweredQuestions = props => {
         const optionTwo = questions[id].optionTwo;
 
         const avatarImg = users[author].avatarURL;
+        const authorName = users[author].name.split(' ')[0];
 
         return (
           <li className="question-item" key={id}>
-            <div className="question-user">
+            <div className="question-user small-container">
               <div
                 className="question-user-avatar"
                 style={{
@@ -49,22 +40,35 @@ const UnansweredQuestions = props => {
                 {author}
               </div>
             </div>
-            <div className="question-user-divide"></div>
-            <div className="unanswered-question-options">
+
+            <div className="unanswered-question-options large-container">
+              <p className="question-author-asks">
+                {authorName} asks:
+                </p>
+              <h3 className="question-header">
+                Would you rather...
+              </h3>
               <div className="question-option-one">
-                <p
-                  data-id={id}
-                  data-value="optionOne"
-                  onClick={handleOnClick}>
-                  {optionOne.text}</p>
+                <Checkbox
+                  id={id}
+                  name="optionOne"
+                  user={user}
+                  users={users}
+                  updateAuthedUser={updateAuthedUser}
+                  fetchUsers={fetchUsers}
+                  fetchQuestions={fetchQuestions} />
+                <div className="question-option">{optionOne.text}</div>
               </div>
-              <div className="question-options-or">or</div>
               <div className="question-option-two">
-                <p
-                  data-id={id}
-                  data-value="optionTwo"
-                  onClick={handleOnClick}>
-                  {optionTwo.text}</p>
+                <Checkbox
+                  id={id}
+                  name="optionTwo"
+                  user={user}
+                  users={users}
+                  updateAuthedUser={updateAuthedUser}
+                  fetchUsers={fetchUsers}
+                  fetchQuestions={fetchQuestions} />
+                <div className="question-option">{optionTwo.text}</div>
               </div>
             </div>
           </li>
@@ -72,6 +76,6 @@ const UnansweredQuestions = props => {
       })}
     </ul>
   )
-};
+}
 
 export default UnansweredQuestions;

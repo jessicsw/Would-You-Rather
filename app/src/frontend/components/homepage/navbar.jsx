@@ -17,9 +17,7 @@ const Navbar = props => {
 
   return (
     <div className="navbar">
-      <span className="navbar-header">
-        Would You Rather?
-      </span>
+      {/* <div className="navbar-header">Would You Rather?</div> */}
       <div className="navbar-links">
         <NavLink className="navbar-link" to="/">Home</NavLink>
         <NavLink className="navbar-link" to="/create_question">Ask a Question</NavLink>
@@ -30,7 +28,7 @@ const Navbar = props => {
           }}>
           </div>
           <div className="navbar-user-name">
-            {authedUser && authedUser.name}
+            {authedUser && authedUser.id}
           </div>
         </div>
         <NavLink className="navbar-link" to="/login" onClick={() => logOutUser()}>Logout</NavLink>

@@ -18,10 +18,11 @@ const AnsweredQuestions = props => {
         const optionTwo = questions[id].optionTwo;
 
         const avatarImg = users[author].avatarURL;
+        const authorName = users[author].name.split(' ')[0];
 
         return (
           <li className="question-item" key={id}>
-            <div className="question-user">
+            <div className="question-user small-container">
               <div
                 className="question-user-avatar"
                 style={{
@@ -32,24 +33,32 @@ const AnsweredQuestions = props => {
                 {author}
               </div>
             </div>
-            <div className="question-user-divide"></div>
-            <div className="answered-question-options">
-              <div className="question-option">
-                <p>{optionOne.text}</p>
-                <div className="question-votes-number">
-                  <strong>Number of Votes: </strong>{optionOne.votes.length}
+
+            <div className="answered-question-container">
+              <p className="question-author-asks">
+                {authorName} asks:
+                </p>
+              <h3 className="question-header">
+                Would you rather...
+              </h3>
+              <div className="answered-question-options">
+                <div className="answered-question-option">
+                  <p><strong>{optionOne.text}</strong></p><strong></strong>
+                  <div className="question-votes-percent">
+                    Percent Vote: {`${((optionOne.votes.length / usersCount) * 100).toFixed(0)}%`}
+                  </div>
+                  <div className="question-votes-number">
+                    Number of Votes: {optionOne.votes.length}
+                  </div>
                 </div>
-                <div className="question-votes-percent">
-                  <strong>Percent: </strong>{`${((optionOne.votes.length / usersCount) * 100).toFixed(0)}%`}
-                </div>
-              </div>
-              <div className="question-option">
-                <p>{optionTwo.text}</p>
-                <div className="question-votes-number">
-                  <strong>Number of Votes: </strong>{optionTwo.votes.length}
-                </div>
-                <div className="question-votes-percent">
-                  <strong>Percent: </strong>{`${((optionTwo.votes.length / usersCount) * 100).toFixed(0)}%`}
+                <div className="answered-question-option">
+                  <p><strong>{optionTwo.text}</strong></p>
+                  <div className="question-votes-percent">
+                    Percent: {`${((optionTwo.votes.length / usersCount) * 100).toFixed(0)}%`}
+                  </div>
+                  <div className="question-votes-number">
+                    Number of Votes: {optionTwo.votes.length}
+                  </div>
                 </div>
               </div>
             </div>

@@ -15,7 +15,7 @@ class QuestionNav extends React.Component {
 
   toggle = event => {
     event.preventDefault();
-    let answered = (event.target.value === 'false')
+    let answered = (event.target.dataset.value === 'false')
       ? false
       : true;
 
@@ -29,23 +29,40 @@ class QuestionNav extends React.Component {
     return (
       <div className="question-nav">
         <div className="question-nav-buttons">
-          <button value="false" onClick={this.toggle}>Questions to Answer</button>
-          <button value="true" onClick={this.toggle}>Answered Questions</button>
+          <div
+            className={answered
+              ? "question-nav-button"
+              : "question-nav-button-selected"}
+            data-value="false"
+            onClick={this.toggle}>
+            Questions to Answer
+          </div>
+          <div
+            className={answered
+              ? "question-nav-button-selected"
+              : "question-nav-button"}
+            data-value="true"
+            onClick={this.toggle}>
+            Answered Questions
+          </div>
         </div>
-        {answered
-          ? <AnsweredQuestions
-            user={user}
-            users={users}
-            questions={questions} />
-          : <UnansweredQuestions
-            user={user}
-            users={users}
-            questions={questions}
-            fetchUsers={fetchUsers}
-            fetchQuestions={fetchQuestions}
-            updateAuthedUser={updateAuthedUser} />}
-
-      </div>
+        <div className="question-list-container">
+          {
+            answered
+              ? <AnsweredQuestions
+                user={user}
+                users={users}
+                questions={questions} />
+              : <UnansweredQuestions
+                user={user}
+                users={users}
+                questions={questions}
+                fetchUsers={fetchUsers}
+                fetchQuestions={fetchQuestions}
+                updateAuthedUser={updateAuthedUser} />
+          }
+        </div>
+      </div >
     )
   }
 };
