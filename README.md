@@ -20,36 +20,36 @@ Would You Rather? utilizes the following:
 
 Users must select a user profile from a precomposed list before playing. If the user navigates anywhere by entering a URL in the address bar and is not authenticated, they will be re-directed to the login page and asked to sign in via react-router. Once the user is logged in, the homepage is shown.
 
-![](demo/login-demo.gif)
+<p align="center">
+  <img width="550" height="300" src="demo/login-demo.gif">
+</p>
 
 ### Homepage
 
-Once the user in authenticated, the user is able to toggle between a list of questions they haven't answered and a list of questions they have already answered. The questions in both categories are arranged by most recently created to least recently created. The unanswered questions are displayed by default.
+Once the user in authenticated, users are able to navigate to the question submission form, leaderboard, homepage, and back to the login page. The user is able to toggle between a list of questions they haven't answered and a list of questions they have already answered. The questions in both categories are arranged by most recently created to least recently created. The unanswered questions are displayed by default.
 
-Users are able to navigate to the question submission form, leaderboard, homepage, and back to the login page.
-
-![](demo/homepage-demo.gif)
-
-#### Unanswered Questions
-
-Users will be able to see:
+Unanswered question format:
   1. Author of question
   2. Question
   3. The options to choose from
 
-#### Answered Questions
-
-Users will be able to see:
+Answered question format:
   1. Question
   2. The options to choose from
   3. The number of people who voted for that option
   4. The option the authenticated user chose.
 
+<p align="center">
+  <img width="550" height="300" src="demo/homepage-demo.gif">
+</p>
+
 ### Create a New Question
 
 To submit a new question, users can click on 'Add New Question' and the application will show a form with inputs for the question, option one, and option two. Once the form has been submitted, the user will be re-directed to the homepage and the new question should appear under 'Questions to Answer.'
 
-![](demo/new-question-demo.gif)
+<p align="center">
+  <img width="550" height="300" src="demo/new-question-demo.gif">
+</p>
 
 ### Leaderboard
 
@@ -57,11 +57,13 @@ For some added fun, the application has a leaderboard that shows each user with 
 
 Users are listed in descending order based on their score. The more questions the user asks and answers, the higher they move up the leaderboard!
 
-![](demo/leaderboard-demo.gif)
+<p align="center">
+  <img width="550" height="300" src="demo/leaderboard-demo.gif">
+</p>
 
 ## Data
 
-The `_data.js` file represents a fake database with API methods to access the data.
+The `_DATA.js` file represents a fake database with API methods to access the data.
 
 The database contains two types of objects and six API methods:
 
