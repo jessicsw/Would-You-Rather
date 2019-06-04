@@ -1,5 +1,5 @@
 import React from 'react';
-import * as GameAPI from '../../../_DATA';
+import * as GameAPI from '../../../_data';
 import { connect } from 'react-redux';
 import { fetchUsers, authedUser } from '../../actions/user_actions';
 import { fetchQuestions } from '../../actions/question_actions';
