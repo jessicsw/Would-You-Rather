@@ -1,5 +1,5 @@
 import React from 'react';
-import * as GameAPI from '../../../_DATA';
+import * as GameAPI from '../../../_DATA.js';
 import login from '../../../images/login.png';
 import LoginUser from './login_dropdown';
 import { connect } from 'react-redux';
@@ -24,8 +24,7 @@ class Login extends React.Component {
       active: false
     };
 
-    // this.handleOnChange = this.handleOnChange.bind(this);
-    // this.handleOnClick = this.handleOnClick.bind(this);
+    this.handleToggleClass = this.handleToggleClass.bind(this);
   }
 
   componentDidMount() {
