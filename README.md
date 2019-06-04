@@ -2,8 +2,6 @@
 
 Would You Rather? is re-make of the classic game of preference.
 
-[gif]
-
 [live link]
 
 Would You Rather? utilizes the following:
@@ -18,14 +16,11 @@ Would You Rather? utilizes the following:
 
 # Features
 
-The application has four primary features:
-
 ### Login
 
-Users must select a user profile from a precomposed list before playing. If the user navigates anywhere by entering a URL in the address bar and is not authenticated, they will be re-directed to the login page and asked to sign in. Once the user is logged in, the homepage is shown.
+Users must select a user profile from a precomposed list before playing. If the user navigates anywhere by entering a URL in the address bar and is not authenticated, they will be re-directed to the login page and asked to sign in via react-router. Once the user is logged in, the homepage is shown.
 
-[login gif]
-[react-router code?]
+![](demo/login-demo.gif)
 
 ### Homepage
 
@@ -33,7 +28,7 @@ Once the user in authenticated, the user is able to toggle between a list of que
 
 Users are able to navigate to the question submission form, leaderboard, homepage, and back to the login page.
 
-[photo]
+![](demo/homepage-demo.gif)
 
 #### Unanswered Questions
 
@@ -41,8 +36,6 @@ Users will be able to see:
   1. Author of question
   2. Question
   3. The options to choose from
-
-  [photo]
 
 #### Answered Questions
 
@@ -52,11 +45,11 @@ Users will be able to see:
   3. The number of people who voted for that option
   4. The option the authenticated user chose.
 
-  [photo]
-
 ### Create a New Question
 
 To submit a new question, users can click on 'Add New Question' and the application will show a form with inputs for the question, option one, and option two. Once the form has been submitted, the user will be re-directed to the homepage and the new question should appear under 'Questions to Answer.'
+
+![](demo/new-question-demo.gif)
 
 ### Leaderboard
 
@@ -64,11 +57,11 @@ For some added fun, the application has a leaderboard that shows each user with 
 
 Users are listed in descending order based on their score. The more questions the user asks and answers, the higher they move up the leaderboard!
 
-[gif]
+![](demo/leaderboard-demo.gif)
 
 ## Data
 
-The `_DATA.js` file represents a fake database with API methods to access the data.
+The `_data.js` file represents a fake database with API methods to access the data.
 
 The database contains two types of objects and six API methods:
 
