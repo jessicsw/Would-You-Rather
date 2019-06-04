@@ -47,11 +47,11 @@ const QuestionForm = props => {
       <form className="question-form" onSubmit={handleSubmit}>
         <div className="question-form-input">
           <label htmlFor="optionone">First Option: </label>
-          <input type="text" name="optionone" autocomplete="off" required />
+          <input type="text" name="optionone" autoComplete="off" required />
         </div>
         <div className="question-form-input">
           <label htmlFor="optiontwo">Second Option: </label>
-          <input type="text" name="optiontwo" autocomplete="off" required />
+          <input type="text" name="optiontwo" autoComplete="off" required />
         </div>
         <div className="question-form-button">
           <input type="submit" value="Submit" />
