@@ -2,7 +2,7 @@
 
 Would You Rather? is re-make of the classic game of preference.
 
-[live link]
+[Live link](lethal-nest.surge.sh)
 
 Would You Rather? utilizes the following:
 
