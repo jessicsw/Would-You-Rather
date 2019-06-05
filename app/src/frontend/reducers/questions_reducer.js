@@ -18,7 +18,6 @@ const questionsReducer = (oldState = _defaultState, action) => {
     case DELETE_QUESTION:
       nextState = merge({}, oldState);
       delete nextState[action.question.id];
-
       return nextState;
     case FETCH_QUESTIONS:
       Object.keys(action.questions).forEach(id => {
