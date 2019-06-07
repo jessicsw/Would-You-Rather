@@ -29,19 +29,19 @@ const UnansweredQuestions = props => {
 
         return (
           <li className="question-item" key={id}>
-            <div className="question-user small-container">
+            <div className="user">
               <div
-                className="question-user-avatar"
+                className="user-avatar"
                 style={{
                   backgroundImage: `url(${avatarImg})`,
                 }}>
               </div>
-              <div className="question-user-author">
+              <div className="user-name">
                 {author}
               </div>
             </div>
 
-            <div className="unanswered-question-options large-container">
+            <div className="unanswered-question-options">
               <p className="question-author-asks">
                 {authorName} asks:
                 </p>

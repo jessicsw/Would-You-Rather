@@ -1,7 +1,7 @@
 import React from 'react';
 import * as GameAPI from '../../../_DATA.js';
 import login from '../../../images/login.png';
-import LoginUser from './login_dropdown';
+import LoginDropdown from './login_dropdown';
 import { connect } from 'react-redux';
 import { authedUser, fetchUsers } from '../../actions/user_actions';
 import { fetchQuestions } from '../../actions/question_actions';
@@ -48,7 +48,7 @@ class Login extends React.Component {
     let { active } = this.state;
 
     const listUsers = Object.keys(users).map(id =>
-      <LoginUser
+      <LoginDropdown
         key={`login-user-${id}`}
         history={history}
         users={users}

@@ -15,24 +15,29 @@ const Leaderboard = props => {
         : 1
     ))
     .map(id => {
-      let name = users[id].name;
-      let avatar = users[id].avatarURL;
+      let avatarImg = users[id].avatarURL;
       let askCount = users[id].questions.length;
       let answerCount = Object.keys(users[id].answers).length;
       let score = askCount + answerCount;
 
       return (
         <li key={id} className="leaderboard-list-item">
-          <div className="leaderboard-score small-container">
-            <p>SCORE:</p>
-            <strong>{score}</strong>
-          </div>
-          <div className="leaderboard-user-info large-container">
-            <div className="leaderboard-user-avatar" style={{
-              backgroundImage: `url(${avatar})`,
-            }}>
+          <div className="user">
+            <div
+              className="user-avatar"
+              style={{
+                backgroundImage: `url(${avatarImg})`,
+              }}>
             </div>
-            <p>{name}</p>
+            <div className="user-name">
+              {id}
+            </div>
+          </div>
+          <div className="leaderboard-user-info">
+            <div className="leaderboard-score">
+              <p>SCORE</p>
+              <strong>{score}</strong>
+            </div>
             <div className="leaderboard-stats">
               <p>{`Number of Questions Asked: ${askCount}`}</p>
               <p>{`Number of Questions Answered: ${answerCount}`}</p>

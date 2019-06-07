@@ -1,6 +1,6 @@
 import React from 'react'
 
-const LoginUser = props => {
+const LoginDropdown = props => {
   const { user, users, updateAuthedUser, history } = props;
 
   const handleOnClick = event => {
@@ -20,4 +20,4 @@ const LoginUser = props => {
   )
 }
 
-export default LoginUser;
+export default LoginDropdown;
