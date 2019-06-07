@@ -1,4 +1,7 @@
-import { RECEIVE_AUTHED_USER, LOGOUT_USER } from '../actions/user_actions';
+import {
+  RECEIVE_AUTHED_USER,
+  LOGOUT_USER
+} from '../actions/user_actions';
 import merge from 'lodash/merge';
 
 let _defaultState = {};

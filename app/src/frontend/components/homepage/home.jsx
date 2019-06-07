@@ -17,7 +17,14 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const Home = props => {
-  let { users, questions, authedUser, fetchUsers, fetchQuestions, updateAuthedUser } = props;
+  let {
+    users,
+    questions,
+    authedUser,
+    fetchUsers,
+    fetchQuestions,
+    updateAuthedUser
+  } = props;
 
   return (
     <div className="homepage">

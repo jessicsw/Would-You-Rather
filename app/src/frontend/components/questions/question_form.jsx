@@ -18,7 +18,14 @@ const mapDispatchToProps = dispatch => ({
 
 
 const QuestionForm = props => {
-  const { authedUser, users, fetchUsers, fetchQuestions, updateAuthedUser } = props;
+  const {
+    authedUser,
+    users,
+    fetchUsers,
+    fetchQuestions,
+    updateAuthedUser,
+    history
+  } = props;
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -29,7 +36,7 @@ const QuestionForm = props => {
       optionTwoText: event.target.optiontwo.value
     };
 
-    GameAPI._saveQuestion(newQuestion); //returns new question, do anything?
+    GameAPI._saveQuestion(newQuestion);
     GameAPI._getUsers()
       .then(users => fetchUsers(users));
     GameAPI._getQuestions()
@@ -38,7 +45,7 @@ const QuestionForm = props => {
       updateAuthedUser(users[authedUser.id]), 1000);
     console.log(authedUser)
     console.log(users)
-    props.history.push(`/`);
+    history.push(`/`);
   }
 
   return (

@@ -17,11 +17,16 @@ const Navbar = props => {
 
   return (
     <div className="navbar">
-      {/* <div className="navbar-header">Would You Rather?</div> */}
       <div className="navbar-links">
-        <NavLink className="navbar-link" to="/">Home</NavLink>
-        <NavLink className="navbar-link" to="/create_question">Ask a Question</NavLink>
-        <NavLink className="navbar-link" to="/leaderboard">Leaderboard</NavLink>
+        <NavLink className="navbar-link" to="/">
+          Home
+        </NavLink>
+        <NavLink className="navbar-link" to="/create_question">
+          Ask a Question
+        </NavLink>
+        <NavLink className="navbar-link" to="/leaderboard">
+          Leaderboard
+        </NavLink>
         <div className="navbar-user-profile">
           <div className="navbar-user-avatar" style={{
             backgroundImage: `url(${avatarImg})`,
@@ -31,7 +36,9 @@ const Navbar = props => {
             {authedUser && authedUser.id}
           </div>
         </div>
-        <NavLink className="navbar-link" to="/login" onClick={() => logOutUser()}>Logout</NavLink>
+        <NavLink className="navbar-link" to="/login" onClick={() => logOutUser()}>
+          Logout
+        </NavLink>
       </div>
     </div>
   )

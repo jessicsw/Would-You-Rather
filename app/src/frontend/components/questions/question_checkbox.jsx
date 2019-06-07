@@ -30,7 +30,9 @@ class Checkbox extends React.Component {
       .then(users => { this.props.fetchUsers(users) });
     GameAPI._getQuestions()
       .then(questions => { this.props.fetchQuestions(questions) });
-    setTimeout(() => this.props.updateAuthedUser(this.props.users[this.props.user.id]), 500);
+    setTimeout(() =>
+      this.props.updateAuthedUser(this.props.users[this.props.user.id])
+      , 500);
   }
 
   render() {

@@ -23,7 +23,14 @@ class QuestionNav extends React.Component {
   }
 
   render() {
-    const { user, users, questions, fetchUsers, fetchQuestions, updateAuthedUser } = this.props;
+    const {
+      user,
+      users,
+      questions,
+      fetchUsers,
+      fetchQuestions,
+      updateAuthedUser
+    } = this.props;
     const { answered } = this.state;
 
     return (
@@ -47,19 +54,18 @@ class QuestionNav extends React.Component {
           </div>
         </div>
         <div className="question-list-container">
-          {
-            answered
-              ? <AnsweredQuestions
-                user={user}
-                users={users}
-                questions={questions} />
-              : <UnansweredQuestions
-                user={user}
-                users={users}
-                questions={questions}
-                fetchUsers={fetchUsers}
-                fetchQuestions={fetchQuestions}
-                updateAuthedUser={updateAuthedUser} />
+          {answered
+            ? <AnsweredQuestions
+              user={user}
+              users={users}
+              questions={questions} />
+            : <UnansweredQuestions
+              user={user}
+              users={users}
+              questions={questions}
+              fetchUsers={fetchUsers}
+              fetchQuestions={fetchQuestions}
+              updateAuthedUser={updateAuthedUser} />
           }
         </div>
       </div >

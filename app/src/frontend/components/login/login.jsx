@@ -28,7 +28,7 @@ class Login extends React.Component {
   }
 
   componentDidMount() {
-    //Retrieve all users from _DATA
+    //Retrieve all users from _DATA.js
     GameAPI._getUsers()
       .then(users => { this.props.fetchUsers(users) });
     GameAPI._getQuestions()
@@ -60,12 +60,13 @@ class Login extends React.Component {
       <div className="login">
         <img src={login} alt="login" />
         <h4>Please sign in to continue.</h4>
-        <div className={active ? "login-form active" : "login-form"} onClick={this.handleToggleClass}>
+        <div
+          className={active ? "login-form active" : "login-form"}
+          onClick={this.handleToggleClass}>
           <span>
             Select User
           </span>
-          <ul
-            className="login-dropdown">
+          <ul className="login-dropdown">
             {listUsers}
           </ul>
         </div>

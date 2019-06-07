@@ -8,7 +8,7 @@ import QuestionForm from './questions/question_form';
 import ProtectedRoute from './protected_route';
 import Leaderboard from './leaderboard/leaderboard';
 import Navbar from './homepage/navbar';
-import NoMatch from './no_match';
+import NoMatch from './no_match_route';
 
 const App = () => {
 
