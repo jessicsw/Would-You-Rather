@@ -211,34 +211,7 @@ html {
   margin-bottom: 35px;
 }
 
-/* User Display */
-.user {
-  width: 150px;
-  height: auto;
-  background: #fff;
-  padding: 45px;
-  margin-left: 20px;
-  border-radius: 10px;
-  float: left;
-  text-align: center;
-}
-
-.user-name {
-  padding-top: 15px;
-}
-
-.user-avatar {
-  width: 100px;
-  height: 100px;
-  margin: 0 auto;
-  background-repeat: no-repeat;
-  background-size: 100px;
-  border-radius: 50%;
-}
-
-/* Question Nav */
-
-  /* Unanswered Questions */
+/* Unanswered Questions */
   .unanswered-question-options {
     display: block;
     background: #fff;
@@ -292,6 +265,31 @@ html {
     .answered-question-option > p {
       margin: 0 0 20px 0;
     }
+
+/* User Display */
+.user {
+  width: 150px;
+  height: auto;
+  background: #fff;
+  padding: 45px;
+  margin-left: 20px;
+  border-radius: 10px;
+  float: left;
+  text-align: center;
+}
+
+.user-name {
+  padding-top: 15px;
+}
+
+.user-avatar {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  background-repeat: no-repeat;
+  background-size: 100px;
+  border-radius: 50%;
+}
 
 /* Checkbox */
 .unanswered-question-options img {
