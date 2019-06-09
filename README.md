@@ -37,7 +37,6 @@ Answered question format:
   1. Question
   2. The options to choose from
   3. The number of people who voted for that option
-  4. The option the authenticated user chose.
 
 <p align="center">
   <img width="550" height="300" src="demo/homepage-demo.gif">
