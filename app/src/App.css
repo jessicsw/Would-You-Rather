@@ -160,10 +160,7 @@ html {
   }
 
     .navbar-user-name:hover {
-      border-top: 3.5px solid #ffd248;
-      border-bottom: 0.5px solid black;
-      padding-bottom: 3px;
-      cursor: pointer;
+      cursor: default;
     }
 
   .navbar-user-avatar {
