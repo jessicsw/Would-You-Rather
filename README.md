@@ -1,6 +1,6 @@
 # Would You Rather?
 
-Would You Rather? is re-make of the classic game of preference.
+Would You Rather? is a re-make of the classic game of preference.
 
 [Live link](https://lethal-nest.surge.sh)
 
